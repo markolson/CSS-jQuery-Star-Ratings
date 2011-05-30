@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title>Dead simple jquery/css stars</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.stars.js"></script>
+		<style type="text/css">
+			.rating a { 
+				font-size: 2em;
+				text-decoration: none;
+				color: #999;
+			}
+			.rating a.on {
+				color: 000;
+			}
+		</style>
+		<script type="text/javascript">
+			$(function() {
+				$('.rating').rating();
+				
+				$('.rating').bind('rated', function(event, rating, stars) {
+					$(this).prev('.rated').text(rating);
+					$(this).prev('.stars').text(stars);
+				});
+			});	
+		</script>
+	</head>
+	<body>
+		<h1>Drop dead simple star ratings</h1>
+		<a href="jquery.stars.js">jquery.stars.js</a><br />
+		<code>$('.rating').rating();</code>
+		<hr />
+		<span class='rated'>0</span> <span class="rating" data-current="0"></span><br />
+		<code>&lt;div class="rating" data-current="0" &gt;&lt;/div&gt;</code>
+		
+		<hr />
+		<span class='rated'>3</span> <span class="rating" data-current="3"></span><br />
+		<code>&lt;div class="rating" data-current="3" &gt;&lt;/div&gt;</code>
+		
+		<hr />
+		<span class='rated'>5</span> of <span class='stars'>?</span>  <span class="rating" data-current="5" data-stars="10"></span><br />
+		<code>&lt;div class="rating" data-current="0" data-stars="10"&gt;&lt;/div&gt;</code>
+	</body>
+</html>
